@@ -3,12 +3,12 @@ const url = "http://localhost:3000/api/cameras";
 
 // Recuperer l'URL
 const card = document.getElementById('card');
-let photos;
+let cameras;
 
 const fetchPhotos = async() => {
-    photos = await fetch(url)
+    cameras = await fetch(url)
     .then(res => res.json());
-    console.log(photos);
+    console.log(cameras);
 }
 
 // Insertion des elements dans le HTML
@@ -16,16 +16,16 @@ const showPhotos = async() => {
     await fetchPhotos();
 
     card.innerHTML = (
-        photos
-            .map(photo => (
+        cameras
+            .map(camera => (
 
                 `
                     <div class="card-item">
-                        <img class="card-img" src="${photo.imageUrl}" alt="Appareil photo"/>
-                        <h3 class="card-name">${photo.name}</h3>
+                        <img class="card-img" src="${camera.imageUrl}" alt="Appareil photo"/>
+                        <h3 class="card-name">${camera.name}</h3>
                         <div class="card-info">
-                            <p class="card-price">${photo.price/100}€</p>
-                            <button class="card-button"><a href="./produit.html?id=${photo._id}">Voir le produit</a></button>
+                            <p class="card-price">${camera.price/100}€</p>
+                            <button class="card-button"><a href="./produit.html?id=${camera._id}">Voir le produit</a></button>
                         </div>
                     </div>
                 `
