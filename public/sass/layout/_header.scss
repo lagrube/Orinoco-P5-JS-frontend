@@ -1,0 +1,24 @@
+.navbar{
+    background-color: $important;
+    width: 100%;
+   .logo{
+    display: block;
+    width: 95%;
+    margin: auto;
+    padding-top: 10px;
+    border-radius: 40px;
+    }
+    #nav{
+        display: flex;
+        justify-content: space-around;
+       @include lien;
+        .panier{
+            display: flex;
+            align-items: baseline;
+            #panier_quantity{
+                @include panier;
+            }
+        }
+    }
+}
+

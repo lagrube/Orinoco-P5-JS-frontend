@@ -1,0 +1,133 @@
+h1 {
+  color: #06020e;
+  display: block;
+  margin: auto;
+  margin-top: 20px;
+}
+
+h2 {
+  font-size: 1.1em;
+  text-align: center;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  width: 90%;
+}
+
+.navbar {
+  background-color: #06020e;
+  width: 100%;
+}
+
+.navbar .logo {
+  display: block;
+  width: 95%;
+  margin: auto;
+  padding-top: 10px;
+  border-radius: 40px;
+}
+
+.navbar #nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.navbar #nav .active {
+  color: plum;
+}
+
+.navbar #nav a {
+  text-decoration: none;
+  color: white;
+  padding: 20px 0 20px;
+  font-size: 1.1em;
+}
+
+.navbar #nav a:hover {
+  color: #edd2ed;
+}
+
+.navbar #nav .panier {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+}
+
+.navbar #nav .panier #panier_quantity {
+  margin-left: 10px;
+  padding: 5px 10px 5px 10px;
+  color: white;
+  background-color: #b36f5b;
+  border-radius: 50%;
+}
+
+main #card .card-item {
+  width: 90%;
+  margin: auto;
+  background-color: #ebeaeb;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+}
+
+main #card .card-item img {
+  display: block;
+  width: 100%;
+  margin: auto;
+  border-radius: 15px 15px 0 0;
+}
+
+main #card .card-item h3 {
+  margin: 5px 0 5px;
+}
+
+main #card .card-item .card-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+main #card .card-item .card-info p {
+  margin: 5px 0 5px;
+}
+
+main #card .card-item .card-info .card-button {
+  border-radius: 15px;
+  padding: 8px;
+  background-color: #b36f5b;
+  border-color: #b36f5b;
+}
+
+main #card .card-item .card-info .card-button .card-button__lien {
+  text-decoration: none;
+  color: white;
+  display: block;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: -webkit-transform 600ms;
+  transition: -webkit-transform 600ms;
+  transition: transform 600ms;
+  transition: transform 600ms, -webkit-transform 600ms;
+}
+
+main #card .card-item .card-info .card-button .card-button__lien:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.add-to-cart {
+  border-radius: 15px;
+  padding: 8px;
+  background-color: #b36f5b;
+  border-color: #b36f5b;
+}
+/*# sourceMappingURL=main.css.map */

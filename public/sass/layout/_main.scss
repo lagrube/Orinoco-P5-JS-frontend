@@ -1,0 +1,59 @@
+// Index.html
+main{
+    h1{
+
+    }
+    h2{
+
+    }
+    #card{
+        .card-item{
+            width: 90%;
+            margin: auto;
+            background-color: rgb(235, 234, 235);
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 20px;
+            img{
+                display: block;
+                width: 100%;
+                margin: auto;
+                border-radius: 15px 15px 0 0;
+            }
+            h3{
+                margin: 5px 0 5px;
+            }
+            .card-info{
+                display: flex;
+                justify-content: space-between;
+                p{
+                    margin: 5px 0 5px;
+                }
+                .card-button{
+                    @include button;
+                    .card-button__lien /* Lien dans button */ {
+                        text-decoration: none;
+                        color: white;
+                        display: block;
+                        transform: scale(1);
+                        transition: transform 600ms;
+                        &:hover{
+                            transform: scale(1.1);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Produit.html
+
+.add-to-cart{
+    @include button;
+}
+
+
+
+
+

@@ -4,26 +4,25 @@
     <meta charset="utf-8" />
     <title>Produit</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="./css/style.css" />
-    <script
-      src="https://kit.fontawesome.com/e439166e98.js"
-      crossorigin="anonymous"
-    ></script>
+    <link rel="stylesheet" href="./sass/main.css"/>
+    <script src="https://kit.fontawesome.com/e439166e98.js" crossorigin="anonymous"></script>
     <script src="./JS/produit.js" async></script>
   </head>
   <body>
     <header>
-      <div class="logo">
-        <a href="./index.html"><h1>Orinocam</h1></a>
-      </div>   
-      <div class ="panier">
-        <a href="./cart.html"><i class="fas fa-shopping-basket"></i></a>
-        <div id ="panier_quantity"></div>
-      </div>
-    </header>
+			<nav class="navbar">
+				<img class="logo" src="../images/orinoco.png" alt="logo" />
+				<div id="nav">
+					<a href="index.html">Accueil</a>
+					<div class ="panier">
+            <a href="./cart.html"><i class="fas fa-shopping-basket"></i></a>
+						<div id ="panier_quantity"></div>
+					</div>
+				</div>
+			</nav>
+		</header>
 
     <main>
-      <a href="./index.html">Retour à l'accueil</a>
       <h2>Votre produit</h2>
       <article id="card"></article>
     </main>

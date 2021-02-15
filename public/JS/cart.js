@@ -3,7 +3,7 @@ numberWithSpace = (x) => {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
 }
 
-const cart = document.querySelector("#cart"); // Récupère la section du panier
+const cart = document.querySelector("#card"); // Récupère la section du panier
 const cartTotal = document.getElementById("cart-total"); //Récupère le h3 pour le prix total
 const form = document.querySelector("form"); // Récupère le formulaire
 
@@ -46,16 +46,16 @@ const displayCart = async () => {
 
       // Quantitées des produits présent au panier
       panierQuantityValue += camQuantity;
-      panierQuantity.textContent = panierQuantityValue
+      panierQuantity.textContent = panierQuantityValue;
 
       const remove = document.querySelectorAll(".remove")[i];
-      const article = document.querySelectorAll("article")[i];
+      const cartItem = document.querySelectorAll("article")[i];
       const iconLeft = document.querySelectorAll(".fa-arrow-circle-left")[i];
       const iconRight = document.querySelectorAll(".fa-arrow-circle-right")[i];
       iconLeft.style.fontSize = "16px";
       iconRight.style.fontSize = "16px";
-      deleteCart(remove, article, itemId); // Appel a la fonction supprimer
-      decrementItem(iconLeft, article, itemId); // Appel de la fonction décrémentation avec la flèche de gauche
+      deleteCart(remove, cartItem, itemId); // Appel a la fonction supprimer
+      decrementItem(iconLeft, cartItem, itemId); // Appel de la fonction décrémentation avec la flèche de gauche
       incrementItem(iconRight, itemId); // Appel de la fonction incrémentation avec la flèche de droite
     }
   } else {
@@ -67,17 +67,24 @@ const displayCart = async () => {
 // Fourni l'affichage du/des produits du panier
 const renderCart = (productName, productPrice, imgUrl, productQuantity, productLense) => {
   // Affiche article(s) du panier
-  const article = document.createElement("article");
-  article.innerHTML = `
-    <img class="product-image" src="${imgUrl}" alt="${productName}"/>
+  const cartItem = document.createElement("div");
+  cartItem.classList.add("card-item");
+  cartItem.innerHTML = 
+  `
+    <img src="${imgUrl}" alt="${productName}"/>
     <div class="product-information>
         <p class="product-title">Marque : ${productName}</p>
         <p class="product-lense">Lentille : ${productLense}</p>
         <p class="price">Prix : ${numberWithSpace(productPrice)}€</p>
     </div>
-    <p class="quantity"><i class="fas fa-arrow-circle-left">${productQuantity}</i><i class="fas fa-arrow-circle-right"></i></p>
-    <button class="remove ">Supprimer</button>`;
-  cart.insertBefore(article, cartTotal); // Insère article avant cartTotal
+    <p class="quantity">
+      <i class="fas fa-arrow-circle-left">${productQuantity}</i><i class="fas fa-arrow-circle-right"></i>
+    </p>
+    <button class="remove">
+      Supprimer
+    </button>
+  `;
+  cart.insertBefore(cartItem, cartTotal); // Insère article avant cartTotal
   totalPrice += productPrice * productQuantity; // Implémente prix
   cartTotal.textContent = `Total : ${numberWithSpace(totalPrice)}€`; // Affiche le prix total
 };

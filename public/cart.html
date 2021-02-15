@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Panier</title>
-    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./sass/main.css" />
     <script
       src="https://kit.fontawesome.com/e439166e98.js"
       crossorigin="anonymous"
@@ -15,19 +15,20 @@
     <header>
       <div class="logo">
         <a href="./index.html"><h1>Orinocam</h1></a>
-      </div>
-      <div class ="panier">
-        <a href="./cart.html"><i class="fas fa-shopping-basket"></i></a>
-        <div id ="panier_quantity"></div>
+        <a href="./index.html">Retour à l'accueil</a>
       </div>
     </header>
 
     <main>
-      <a href="./index.html">Retour à l'accueil</a>
-      <h2>Détail de votre panier</h2>
-      <section id="cart">
+      
+      <div class ="panier">
+        <h3>Détail de votre panier :</h3>
+        <div id ="panier_quantity"></div>
+      </div>
+      
+      <div id="card">
         <h3 id="cart-total"></h3>
-      </section>
+      </div>
       <div class="container">
         <form>
           <label for="firstName">Prénom : </label>
