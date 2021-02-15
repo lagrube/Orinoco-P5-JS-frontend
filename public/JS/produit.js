@@ -104,11 +104,14 @@ const addToCart = (parentElt, cameraData) => {
 
   // Lentille sélectionné
   let selectLense;
-   
+  // Panier localstorage
+  let panier = JSON.parse(localStorage.getItem("panier")); 
+
   // Envoie valeur à localStorage après un click
   btn.addEventListener("click", () => {
+
     // Récupère la lentille choisie dans la console
-    selectLense = document.getElementById('lenses-list').value;
+    selectLense = document.getElementById('lenses-list').value;  
 
     // Assigne valeur à envoyer à localStorage
     const camera = {
@@ -119,14 +122,12 @@ const addToCart = (parentElt, cameraData) => {
       lense: selectLense,
       quantity: 1
     };
-    
-    // récupérer panier localstorage
-    let panier = JSON.parse(localStorage.getItem("panier"));
+    // Consigne d'ajout au panier :
     if (panier === null) {
       panier = {};
     }
+    // Oblige le client à choisir une lentille
     if (selectLense != "Choisissez une valeur"){
-    alert.textContent = "Votre produit à été ajouté au panier";
       // ajouter le produit au panier
       if (panier[camera.id] !== undefined && panier[camera.id].lense === selectLense) {
         panier[camera.id].quantity += 1;
@@ -138,6 +139,11 @@ const addToCart = (parentElt, cameraData) => {
     localStorage.setItem("panier", JSON.stringify(panier));
     location.reload(true);
   });
+
+  // Notif si un produit est présent dans le panier
+  if (panier !== null && panier[id] !== undefined) {
+    alert.textContent = "Votre produit à été ajouté au panier";
+  }
 };
  
 displayCamera();

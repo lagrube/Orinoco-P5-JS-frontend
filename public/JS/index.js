@@ -6,6 +6,8 @@ numberWithSpace = (x) => {
 // Quantitées du panier
 let panierQuantity = document.getElementById("panier_quantity");
 let panierQuantityValue = 0;
+// Panier
+let panierName = document.getElementById("panier_name");
 
 // Items du localstorage
 const displayPanier = async () => {
@@ -15,11 +17,12 @@ const displayPanier = async () => {
         for(let i = 0; i < Object.keys(cartItems).length; i++) {
         const itemId = Object.keys(cartItems)[i];
         const camQuantity = cartItems[itemId].quantity;
-    
         panierQuantityValue += camQuantity;
         panierQuantity.textContent = panierQuantityValue;
+        // Modification nom du panier
+        if (cartItems!== null && itemId !== undefined) panierName.textContent = "Finalisez votre achat";
         }
-    } 
+    };
 };
 displayPanier();
 

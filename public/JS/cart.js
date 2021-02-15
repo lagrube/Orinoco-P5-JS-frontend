@@ -18,8 +18,6 @@ let totalPrice = 0;
 let panierQuantity = document.getElementById("panier_quantity");
 let panierQuantityValue = 0;
 
-
-
 // Récupère élément dans localStorage
 const getItem = async (itemId) => {
   const response = await fetch(
@@ -79,13 +77,13 @@ const renderCart = (productName, productPrice, imgUrl, productQuantity, productL
         <p class="price">Prix : ${numberWithSpace(productPrice)}€</p>
     </div>
     <p class="quantity"><i class="fas fa-arrow-circle-left">${productQuantity}</i><i class="fas fa-arrow-circle-right"></i></p>
-    <button class="remove ">supprimer</button>`;
+    <button class="remove ">Supprimer</button>`;
   cart.insertBefore(article, cartTotal); // Insère article avant cartTotal
   totalPrice += productPrice * productQuantity; // Implémente prix
   cartTotal.textContent = `Total : ${numberWithSpace(totalPrice)}€`; // Affiche le prix total
 };
 
-// Supprime élément du panier sur un clique
+// Supprime élément du panier grace au boutton "supprimer"
 const deleteCart = (removeElt, container, productId) => {
   removeElt.addEventListener("click", async () => {
     const panier = JSON.parse(localStorage.getItem("panier"));
@@ -102,7 +100,6 @@ const deleteCart = (removeElt, container, productId) => {
 };
 
 // décrémente et enlève un produit au panier avec la flèche de gauche
-
 const decrementItem = (iconLeft, container, productId) => {
   iconLeft.addEventListener("click", () => {
     const panier = JSON.parse(localStorage.getItem("panier"));
@@ -121,7 +118,6 @@ const decrementItem = (iconLeft, container, productId) => {
 };
 
 // incremente et rajoute un produit au panier avec la flèche de droite
-
 const incrementItem = (iconRight, productId) => {
   iconRight.addEventListener("click", () => {
     const panier = JSON.parse(localStorage.getItem("panier"));
