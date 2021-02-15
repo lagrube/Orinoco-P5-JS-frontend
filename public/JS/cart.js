@@ -34,7 +34,6 @@ const displayCart = async () => {
     for (let i = 0; i < Object.keys(cartItems).length; i++) {
       // Pour chaque article du panier
       const itemId = Object.keys(cartItems)[i];
-      console.log(itemId);
       const product = await getItem(itemId); // Récupère les informations du produit
       const camId = product._id; // Stocke l'id du produit
       const camImg = product.imageUrl; // Stocke l'image du produit
@@ -55,9 +54,9 @@ const displayCart = async () => {
       const iconRight = document.querySelectorAll(".fa-arrow-circle-right")[i];
       iconLeft.style.fontSize = "16px";
       iconRight.style.fontSize = "16px";
-      deleteCart(remove, article, itemId);
-      decrementItem(iconLeft, article, itemId); // appel de la fonction décrémentation avec la flèche de gauche
-      incrementItem(iconRight, itemId); // appel de la fonction incrémentation avec la flèche de droite
+      deleteCart(remove, article, itemId); // Appel a la fonction supprimer
+      decrementItem(iconLeft, article, itemId); // Appel de la fonction décrémentation avec la flèche de gauche
+      incrementItem(iconRight, itemId); // Appel de la fonction incrémentation avec la flèche de droite
     }
   } else {
     cart.textContent = "Votre panier est vide.";
@@ -83,28 +82,27 @@ const renderCart = (productName, productPrice, imgUrl, productQuantity, productL
   cartTotal.textContent = `Total : ${numberWithSpace(totalPrice)}€`; // Affiche le prix total
 };
 
-// Supprime élément du panier grace au boutton "supprimer"
+// Panier localstorage
+const panier = JSON.parse(localStorage.getItem("panier"));
+
+// Supprimer élément du panier grace au boutton "supprimer"
 const deleteCart = (removeElt, container, productId) => {
   removeElt.addEventListener("click", async () => {
-    const panier = JSON.parse(localStorage.getItem("panier"));
-    if (panier === null) return;
-    if (panier[productId] === undefined) return;
-    else {
-      delete panier[productId];
-    }
+    delete panier[productId];
+    // Supprime item du localStorage
     localStorage.setItem("panier", JSON.stringify(panier));
-    // Supprime item du localStorage 
     container.remove(); // Supprime item du DOM 
     location.reload(true); // Actualise la page dynamiquement
   });
 };
 
-// décrémente et enlève un produit au panier avec la flèche de gauche
+/* TEST NON CONCLUANT DE LA SUPRRESSION DU LOCALSTORAGE(err console)
+ if (panier.value === undefined) localStorage.clear();
+*/
+
+// Décrémente et enlève un produit au panier avec la flèche de gauche
 const decrementItem = (iconLeft, container, productId) => {
   iconLeft.addEventListener("click", () => {
-    const panier = JSON.parse(localStorage.getItem("panier"));
-    if (panier === null) return;
-    if (panier[productId] === undefined) return;
     if (panier[productId].quantity > 1) {
       panier[productId].quantity--;
       // Supprime item du localStorage
@@ -117,12 +115,9 @@ const decrementItem = (iconLeft, container, productId) => {
   });
 };
 
-// incremente et rajoute un produit au panier avec la flèche de droite
+// Incremente et rajoute un produit au panier avec la flèche de droite
 const incrementItem = (iconRight, productId) => {
   iconRight.addEventListener("click", () => {
-    const panier = JSON.parse(localStorage.getItem("panier"));
-    if (panier === null) return;
-    if (panier[productId] === undefined) return;
     if (panier[productId].quantity >= 1) {
       panier[productId].quantity++;
     }
