@@ -14,7 +14,7 @@ const displayPanier = async () => {
         panierQuantity.textContent = panierQuantityValue;
         }
     } else {
-        return
-    }
+        return console.log("votre panier est vide");
+    };
 };
 displayPanier;

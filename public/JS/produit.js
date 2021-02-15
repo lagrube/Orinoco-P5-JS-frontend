@@ -1,3 +1,23 @@
+// Quantitées du panier
+let panierQuantity = document.getElementById("panier_quantity");
+let panierQuantityValue = 0;
+
+// Items du localstorage
+const displayPanier = async () => {
+    const cartItems = JSON.parse(localStorage.getItem("panier"));
+    if (cartItems === null) return;
+    if (Object.keys(cartItems).length > 0) {
+        for(let i = 0; i < Object.keys(cartItems).length; i++) {
+        const itemId = Object.keys(cartItems)[i];
+        const camQuantity = cartItems[itemId].quantity;
+    
+        panierQuantityValue += camQuantity;
+        panierQuantity.textContent = panierQuantityValue;
+        }
+    } 
+};
+displayPanier();
+
 // URL de l'api
 const url = "http://localhost:3000/api/cameras/";
 
@@ -10,22 +30,6 @@ const card = document.getElementById("card");
 // Methode pour avoir un espace apres 3 chiffres
 numberWithSpace = (x) => {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
-};
-
-// Quantitées du panier
-let panierQuantity = document.getElementById("panier_quantity");
-let panierQuantityValue = 0;
-
-// Items du localstorage
-const cartItems = JSON.parse(localStorage.getItem("panier"));
-if (Object.keys(cartItems).length > 0) {
-  for(let i = 0; i < Object.keys(cartItems).length; i++) {
-  const itemId = Object.keys(cartItems)[i];
-  const camQuantity = cartItems[itemId].quantity;
-
-  panierQuantityValue += camQuantity;
-  panierQuantity.textContent = panierQuantityValue;
-  }
 };
 
 // Afficher la caméra

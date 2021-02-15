@@ -31,6 +31,7 @@ const getItem = async (itemId) => {
 // Affiche le/les produit(s) du panier.
 const displayCart = async () => {
   const cartItems = JSON.parse(localStorage.getItem("panier"));
+  if (cartItems === null) return;
   if (Object.keys(cartItems).length > 0) {
     for (let i = 0; i < Object.keys(cartItems).length; i++) {
       // Pour chaque article du panier
