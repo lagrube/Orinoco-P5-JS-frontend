@@ -1,20 +1,28 @@
-// Quantitées du panier
-let panierQuantity = document.getElementById("panier_quantity");
-let panierQuantityValue = 0;
-
-// Items du localstorage
-const displayPanier = async () => {
-    const cartItems = JSON.parse(localStorage.getItem("panier"));
-    if (Object.keys(cartItems).length > 0) {
-        for(let i = 0; i < Object.keys(cartItems).length; i++) {
-        const itemId = Object.keys(cartItems)[i];
-        const camQuantity = cartItems[itemId].quantity;
-    
-        panierQuantityValue += camQuantity;
-        panierQuantity.textContent = panierQuantityValue;
-        }
-    } else {
-        return console.log("votre panier est vide");
-    };
+// Supprime élément du panier grace au boutton "supprimer"
+const deleteCart = (removeElt, container, productId) => {
+    removeElt.addEventListener("click", async () => {
+      const panier = JSON.parse(localStorage.getItem("panier"));
+      delete panier[productId];
+      localStorage.setItem("panier", JSON.stringify(panier));
+      // Supprime item du localStorage 
+      if (panier === null) localStorage.clear();
+      container.remove(); // Supprime item du DOM 
+      location.reload(true); // Actualise la page dynamiquement
+    });
 };
-displayPanier;
+
+// Supprimer élément du panier grace au boutton "supprimer"
+const deleteCart = (removeElt, container, productId) => {
+    removeElt.addEventListener("click", async () => {
+      const panier = JSON.parse(localStorage.getItem("panier"));
+      if (panier === null) return;
+      if (panier[productId] === undefined) return;
+      else {
+        delete panier[productId];
+      }
+      // Supprime item du localStorage
+      localStorage.setItem("panier", JSON.stringify(panier));
+      container.remove(); // Supprime item du DOM 
+      location.reload(true); // Actualise la page dynamiquement
+    });
+  };
