@@ -9,7 +9,28 @@ const fetchPhotos = async() => {
     cameras = await fetch(url)
     .then(res => res.json());
     console.log(cameras);
-}
+};
+
+// Methode pour avoir un espace apres 3 chiffres
+numberWithSpace = (x) => {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+};
+
+// Quantitées du panier
+let panierQuantity = document.getElementById("panier_quantity");
+let panierQuantityValue = 0;
+
+// Items du localstorage
+const cartItems = JSON.parse(localStorage.getItem("panier"));
+if (Object.keys(cartItems).length > 0) {
+    for(let i = 0; i < Object.keys(cartItems).length; i++) {
+    const itemId = Object.keys(cartItems)[i];
+    const camQuantity = cartItems[itemId].quantity;
+  
+    panierQuantityValue += camQuantity;
+    panierQuantity.textContent = panierQuantityValue;
+    }
+};
 
 // Insertion des elements dans le HTML
 const showPhotos = async() => {
@@ -24,7 +45,7 @@ const showPhotos = async() => {
                         <img class="card-img" src="${camera.imageUrl}" alt="Appareil photo"/>
                         <h3 class="card-name">${camera.name}</h3>
                         <div class="card-info">
-                            <p class="card-price">${camera.price/100}€</p>
+                            <p class="card-price">${numberWithSpace(camera.price/100)}€</p>
                             <button class="card-button"><a href="./produit.html?id=${camera._id}">Voir le produit</a></button>
                         </div>
                     </div>

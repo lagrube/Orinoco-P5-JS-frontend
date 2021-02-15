@@ -1,3 +1,8 @@
+// Methode pour avoir un espace apres 3 chiffres
+numberWithSpace = (x) => {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+}
+
 const cart = document.querySelector("#cart"); // Récupère la section du panier
 const cartTotal = document.getElementById("cart-total"); //Récupère le h3 pour le prix total
 const form = document.querySelector("form"); // Récupère le formulaire
@@ -8,14 +13,17 @@ const cartInformation = {
 };
 // Stock le prix total
 let totalPrice = 0;
-numberWithSpace = (x) => {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
-}
+
+// Quantitées du panier
+let panierQuantity = document.getElementById("panier_quantity");
+let panierQuantityValue = 0;
+
+
 
 // Récupère élément dans localStorage
-const getItem = async (cameraId) => {
+const getItem = async (itemId) => {
   const response = await fetch(
-    "http://localhost:3000/api/cameras/" + cameraId
+    "http://localhost:3000/api/cameras/" + itemId
   );
   return await response.json();
 };
@@ -27,15 +35,20 @@ const displayCart = async () => {
     for (let i = 0; i < Object.keys(cartItems).length; i++) {
       // Pour chaque article du panier
       const itemId = Object.keys(cartItems)[i];
+      console.log(itemId);
       const product = await getItem(itemId); // Récupère les informations du produit
       const camId = product._id; // Stocke l'id du produit
       const camImg = product.imageUrl; // Stocke l'image du produit
       const camName = product.name; // Stocke le nom du produit
       const lenseChosen = cartItems[itemId].lense; // Stocke la lentille du produit
       const camPrice = product.price / 100; // Stocke le prix du produit
-      const camQuantity = cartItems[itemId].quantity;
+      const camQuantity = cartItems[itemId].quantity; // Stocke la quantité du produit
       cartInformation.products.push(camId); // Envoie l'id du produit au tableau products de cartInformation
       renderCart(camName, camPrice, camImg, camQuantity, lenseChosen); // Fourni l'affichage du/des produits du panier
+
+      // Quantitées des produits présent au panier
+      panierQuantityValue += camQuantity;
+      panierQuantity.textContent = panierQuantityValue
 
       const remove = document.querySelectorAll(".remove")[i];
       const article = document.querySelectorAll("article")[i];
@@ -62,7 +75,7 @@ const renderCart = (productName, productPrice, imgUrl, productQuantity, productL
     <div class="product-information>
         <p class="product-title">Marque : ${productName}</p>
         <p class="product-lense">Lentille : ${productLense}</p>
-        <p class="price">Prix : ${productPrice}€</p>
+        <p class="price">Prix : ${numberWithSpace(productPrice)}€</p>
     </div>
     <p class="quantity"><i class="fas fa-arrow-circle-left">${productQuantity}</i><i class="fas fa-arrow-circle-right"></i></p>
     <button class="remove ">supprimer</button>`;
@@ -123,6 +136,7 @@ const incrementItem = (iconRight, productId) => {
 
 displayCart();
 
+// Caractères spéciaux 
 const containNumber = /[0-9]/;
 const regexEmail = /.+@.+\..+/;
 const specialCharacter = /[$&+,:;=?@#|'<>.^*()%!"{}_"]/;
@@ -135,11 +149,12 @@ const doNotContainSpecialCharacter = (value) =>
   !value.match(specialCharacter) ? true : false; // Vérifie que la valeur donnée ne possède pas de symbole
 const isValidEmail = (value) => (value.match(regexEmail) ? true : false); // Vérifie que la valeur donnée soit bien dans le format email
 
+// renvoie true si toutes les conditions sont vérifiées
 const isValidInput = (value) =>
   isNotEmpty(value) &&
   isLongEnough(value) &&
   doNotContainNumber(value) &&
-  doNotContainSpecialCharacter(value); // renvoie true si toutes les conditions sont vérifiées
+  doNotContainSpecialCharacter(value); 
 
 // Récupère les éléments du formulaire
 const firstName = form.elements.firstName;
@@ -178,7 +193,7 @@ const formValidate = () => {
               lastName: lastName.value,
               address: address.value,
               city: city.value,
-              email: email.value,
+              email: email.value
             });
           } else {
             emailErrorMessage.textContent =
@@ -208,27 +223,27 @@ const formValidate = () => {
   }
 };
 // Envoie données à l'api
-const postData = async (method, url, dataElt) => {
-  const response = await fetch(url, {
+const postData = async () => {
+  const response = await fetch("http://localhost:3000/api/cameras/order", {
     headers: {
       "Content-Type": "application/json",
     },
-    method,
-    body: JSON.stringify(dataElt),
+    method: "POST",
+    body: JSON.stringify(cartInformation),
   });
   return await response.json();
 };
 
+// Bouton valider
 btn.addEventListener("click", async (e) => {
   e.preventDefault();
   const validForm = formValidate(); // Valide le formulaire
   if (validForm !== false) {
-    const response = await postData(
-      "POST",
-      "http://localhost:3000/api/cameras/order",
-      cartInformation
-    ); // Envoie données au serveur
-    window.location = `./confirmation.html?id=${response.orderId}&price=${totalPrice}&user=${firstName.value}`; // Redirige vers la page de confirmation de commande
+    // Envoie données au serveur
+    const response = await postData();
+    // Redirection vers page de confirmation
+    window.location = `./confirmation.html?id=${response.orderId}&price=${totalPrice}&user=${firstName.value}`; 
+    // Vider le panier
     localStorage.removeItem("panier");
   }
 });

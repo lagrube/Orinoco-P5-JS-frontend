@@ -1,18 +1,20 @@
-// Fourni l'affichage selon les données du produit
-card.innerHTML = (
-    camera
-        .map(photoId => (
+// Quantitées du panier
+let panierQuantity = document.getElementById("panier_quantity");
+let panierQuantityValue = 0;
 
-            `
-                <id class="card-item">
-                    <img class="card-img" src="${photoId.imageUrl}" alt="Appareil photo"/>
-                    <h3 class="card-name">${photoId.name}</h3>
-                    <div class="card-info">
-                        <p class="card-price">${photoId.price/100}€</p>
-                        <p class="card-zoom">${photoId.lense}</p>
-                    </div>
-                </id>
-            `
-                
-        )).join('')
-    );
+// Items du localstorage
+const displayPanier = async () => {
+    const cartItems = JSON.parse(localStorage.getItem("panier"));
+    if (Object.keys(cartItems).length > 0) {
+        for(let i = 0; i < Object.keys(cartItems).length; i++) {
+        const itemId = Object.keys(cartItems)[i];
+        const camQuantity = cartItems[itemId].quantity;
+    
+        panierQuantityValue += camQuantity;
+        panierQuantity.textContent = panierQuantityValue;
+        }
+    } else {
+        return
+    }
+};
+displayPanier;

@@ -7,6 +7,27 @@ const id = params.get("id");
 
 const card = document.getElementById("card");
 
+// Methode pour avoir un espace apres 3 chiffres
+numberWithSpace = (x) => {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+};
+
+// Quantitées du panier
+let panierQuantity = document.getElementById("panier_quantity");
+let panierQuantityValue = 0;
+
+// Items du localstorage
+const cartItems = JSON.parse(localStorage.getItem("panier"));
+if (Object.keys(cartItems).length > 0) {
+  for(let i = 0; i < Object.keys(cartItems).length; i++) {
+  const itemId = Object.keys(cartItems)[i];
+  const camQuantity = cartItems[itemId].quantity;
+
+  panierQuantityValue += camQuantity;
+  panierQuantity.textContent = panierQuantityValue;
+  }
+};
+
 // Afficher la caméra
 const displayCamera = async () => {
   const data = await getOneCams(url, id);
@@ -30,7 +51,7 @@ card.innerHTML =
         <img class="card-img" src="${camera.imageUrl}" alt="Appareil photo"/>
         <h3 class="card-name">${camera.name}</h3>
         <div class="card-info">
-            <p class="card-price">${camera.price/100}€</p>
+            <p class="card-price">${numberWithSpace(camera.price/100)}€</p>
         </div>
     </div>
   `;
@@ -77,9 +98,9 @@ const addToCart = (parentElt, cameraData) => {
   alert.classList.add("alert");
   parentElt.appendChild(alert);
 
-  
+  // Lentille sélectionné
   let selectLense;
-  
+   
   // Envoie valeur à localStorage après un click
   btn.addEventListener("click", () => {
     // Récupère la lentille choisie dans la console
@@ -93,7 +114,7 @@ const addToCart = (parentElt, cameraData) => {
       imageUrl: cameraData.imageUrl,
       lense: selectLense,
       quantity: 1
-    }; 
+    };
     
     // récupérer panier localstorage
     let panier = JSON.parse(localStorage.getItem("panier"));
@@ -111,6 +132,7 @@ const addToCart = (parentElt, cameraData) => {
     }
     // update panier localstorage
     localStorage.setItem("panier", JSON.stringify(panier));
+    location.reload(true);
   });
 };
  
