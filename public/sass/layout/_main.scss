@@ -21,11 +21,16 @@ main{
             padding: 10px;
             margin-bottom: 20px;
             border-radius: 20px;
-            img{
-                display: block;
+            @include pc{
+                width: 45%;
+            }
+            .card-img{
                 width: 100%;
                 margin: auto;
                 border-radius: 15px 15px 0 0;
+                @include tablette-pc{
+                    height: 300px;
+                }
             }
             h3{
                 margin: 5px 0 5px 5%;
@@ -57,6 +62,12 @@ main{
             }
         }
     }
+    .card-pc{
+        @include pc{
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
 }
 
 // Produit.html
@@ -66,14 +77,15 @@ main{
 
     }
     article{
-        .card-item{
-
-        }
         label{
             padding: 8px;
             margin-left: 15%;
             background-color: rgb(235, 234, 235);
             border-radius: 15px;
+            white-space: nowrap;
+            width: 250px;
+            display: block;
+            margin: auto;
         }
         .add-to-cart{
             margin-top: 20px;
@@ -103,6 +115,22 @@ main{
     .cart{
         text-align: center;
         .card-item{
+            @include tablette-pc{
+                display: flex;
+                justify-content: space-around;
+                height: 200px;
+                align-items: center;
+            }
+            .panier-img{
+                width: 100%;
+                margin: auto;
+                border-radius: 15px 0 0 15px;
+                @include tablette-pc{
+                    width: 40%;
+                    margin: 0;
+                    height: 95%;
+                    }
+            }
             .description{
                 p{
                     .bold{
@@ -114,10 +142,20 @@ main{
                 .fa-arrow-circle-left{
                     &:before{
                         margin-right: 5px;
+                        @include pc{
+                            margin-right: 1px;
+                        }
                     }
                 }
                 .fa-arrow-circle-right{
                     margin-left: 5px;
+                    @include pc{
+                        margin-left: 1px;
+                    }
+                }
+                @include pc{
+                    white-space: nowrap;
+                    margin-right: 5px;
                 }
             }
             button{
@@ -128,8 +166,14 @@ main{
                 &:hover{
                     transform: scale(1.1);
                 }
+                @include tablette-pc{
+                    height: 50px;
+                }
             }
         }
+    }
+    #cart-total{
+        text-align: center;
     }
     .container{
         text-align: center;
@@ -156,7 +200,11 @@ main{
 // confirmation
 
 main{
-    article{
+    .achat{
+        text-align: center;
+        @include pc{
+            margin-bottom: 100px;
+        }
         .confirmation{
             padding: 30px;
             font-size: 1.3em;

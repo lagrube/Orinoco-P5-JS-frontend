@@ -1,4 +1,15 @@
 body {
+  min-width: 320px;
+}
+
+@media all and (min-width: 1024px) {
+  body {
+    max-width: 1300px;
+    margin: auto;
+  }
+}
+
+body {
   font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
 }
 
@@ -7,12 +18,32 @@ body {
   width: 100%;
 }
 
+@media screen and (min-width: 600px) {
+  .navbar {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 70% 1fr;
+        grid-template-columns: 70% 1fr;
+  }
+}
+
 .navbar .logo {
   display: block;
   width: 95%;
   margin: auto;
   padding-top: 10px;
   border-radius: 40px;
+}
+
+@media screen and (min-width: 600px) {
+  .navbar .logo {
+    width: 200px;
+    margin: 0 0 10px 10px;
+    border-radius: 0;
+  }
 }
 
 .navbar #nav {
@@ -38,6 +69,14 @@ body {
   color: #edd2ed;
 }
 
+@media screen and (min-width: 600px) {
+  .navbar #nav {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
 .navbar #nav .panier {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -45,6 +84,12 @@ body {
   -webkit-box-align: baseline;
       -ms-flex-align: baseline;
           align-items: baseline;
+}
+
+@media screen and (min-width: 600px) {
+  .navbar #nav .panier {
+    margin-left: 20%;
+  }
 }
 
 .navbar #nav .panier #panier_quantity {
@@ -82,11 +127,22 @@ main #card .card-item {
   border-radius: 20px;
 }
 
-main #card .card-item img {
-  display: block;
+@media all and (min-width: 1024px) {
+  main #card .card-item {
+    width: 45%;
+  }
+}
+
+main #card .card-item .card-img {
   width: 100%;
   margin: auto;
   border-radius: 15px 15px 0 0;
+}
+
+@media screen and (min-width: 600px) {
+  main #card .card-item .card-img {
+    height: 300px;
+  }
 }
 
 main #card .card-item h3 {
@@ -135,11 +191,25 @@ main #card .card-item .card-info .card-button .card-button__lien:hover {
           transform: scale(1.1);
 }
 
+@media all and (min-width: 1024px) {
+  main .card-pc {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
 main article label {
   padding: 8px;
   margin-left: 15%;
   background-color: #ebeaeb;
   border-radius: 15px;
+  white-space: nowrap;
+  width: 250px;
+  display: block;
+  margin: auto;
 }
 
 main article .add-to-cart {
@@ -177,6 +247,34 @@ main .cart {
   text-align: center;
 }
 
+@media screen and (min-width: 600px) {
+  main .cart .card-item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    height: 200px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+main .cart .card-item .panier-img {
+  width: 100%;
+  margin: auto;
+  border-radius: 15px 0 0 15px;
+}
+
+@media screen and (min-width: 600px) {
+  main .cart .card-item .panier-img {
+    width: 40%;
+    margin: 0;
+    height: 95%;
+  }
+}
+
 main .cart .card-item .description p .bold {
   font-weight: bold;
 }
@@ -185,8 +283,27 @@ main .cart .card-item .quantity .fa-arrow-circle-left:before {
   margin-right: 5px;
 }
 
+@media all and (min-width: 1024px) {
+  main .cart .card-item .quantity .fa-arrow-circle-left:before {
+    margin-right: 1px;
+  }
+}
+
 main .cart .card-item .quantity .fa-arrow-circle-right {
   margin-left: 5px;
+}
+
+@media all and (min-width: 1024px) {
+  main .cart .card-item .quantity .fa-arrow-circle-right {
+    margin-left: 1px;
+  }
+}
+
+@media all and (min-width: 1024px) {
+  main .cart .card-item .quantity {
+    white-space: nowrap;
+    margin-right: 5px;
+  }
 }
 
 main .cart .card-item button {
@@ -206,6 +323,16 @@ main .cart .card-item button {
 main .cart .card-item button:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
+}
+
+@media screen and (min-width: 600px) {
+  main .cart .card-item button {
+    height: 50px;
+  }
+}
+
+main #cart-total {
+  text-align: center;
 }
 
 main .container {
@@ -241,12 +368,22 @@ main .container form #btn:hover {
           transform: scale(1.1);
 }
 
-main article .confirmation {
+main .achat {
+  text-align: center;
+}
+
+@media all and (min-width: 1024px) {
+  main .achat {
+    margin-bottom: 100px;
+  }
+}
+
+main .achat .confirmation {
   padding: 30px;
   font-size: 1.3em;
 }
 
-main article .bold {
+main .achat .bold {
   font-weight: bold;
   font-size: 1.1em;
 }

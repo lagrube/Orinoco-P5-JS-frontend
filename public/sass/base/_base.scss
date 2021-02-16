@@ -1,0 +1,8 @@
+body{
+    @include pc{
+    max-width: 1300px;
+    margin: auto;
+    }
+    
+    min-width: 320px;
+}

@@ -1,20 +1,36 @@
 .navbar{
     background-color: $important;
     width: 100%;
+    @include tablette-pc{
+        display: flex;
+        display: grid;
+        grid-template-columns: 70% 1fr;
+    }
    .logo{
     display: block;
     width: 95%;
     margin: auto;
     padding-top: 10px;
     border-radius: 40px;
+    @include tablette-pc{
+        width: 200px;
+        margin: 0 0 10px 10px;
+        border-radius: 0;
+    }
     }
     #nav{
         display: flex;
         justify-content: space-around;
        @include lien;
+       @include tablette-pc{
+            align-items: center;
+       }
         .panier{
             display: flex;
             align-items: baseline;
+            @include tablette-pc{
+                margin-left: 20%;
+            }
             #panier_quantity{
                 @include panier;
             }
