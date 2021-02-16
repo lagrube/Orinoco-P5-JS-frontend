@@ -49,7 +49,7 @@ const displayCart = async () => {
       panierQuantity.textContent = panierQuantityValue;
 
       const remove = document.querySelectorAll(".remove")[i];
-      const cartItem = document.querySelectorAll(".card-item")[i];
+      const cartItem = document.querySelectorAll(".card-item-panier")[i];
       const iconLeft = document.querySelectorAll(".fa-arrow-circle-left")[i];
       const iconRight = document.querySelectorAll(".fa-arrow-circle-right")[i];
       iconLeft.style.fontSize = "16px";
