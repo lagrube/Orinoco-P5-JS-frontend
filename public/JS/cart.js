@@ -68,7 +68,7 @@ const displayCart = async () => {
 const renderCart = (productName, productPrice, imgUrl, productQuantity, productLense) => {
   // Affiche article(s) du panier
   const cartItem = document.createElement("div");
-  cartItem.classList.add("card-item");
+  cartItem.classList.add("card-item-panier");
   cartItem.innerHTML = 
   `
     <img class="panier-img" src="${imgUrl}" alt="${productName}"/>

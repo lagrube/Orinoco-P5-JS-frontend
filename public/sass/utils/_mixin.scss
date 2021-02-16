@@ -35,6 +35,9 @@
     color: white;
     background-color: rgb(179, 111, 91);
     border-radius: 50%;
+    position: relative;
+    bottom: 15px;
+    right: 10px;
 };
 
 @mixin button{

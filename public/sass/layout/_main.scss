@@ -114,17 +114,26 @@ main{
 main{
     .cart{
         text-align: center;
-        .card-item{
+        .card-item-panier{
+            width: 90%;
+            margin: auto;
+            background-color: rgb(235, 234, 235);
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 20px;
             @include tablette-pc{
                 display: flex;
                 justify-content: space-around;
                 height: 200px;
                 align-items: center;
             }
+            @include pc{
+                width: 80%;
+            }
             .panier-img{
                 width: 100%;
                 margin: auto;
-                border-radius: 15px 0 0 15px;
+                border-radius: 15px 15px 0 0;
                 @include tablette-pc{
                     width: 40%;
                     margin: 0;
@@ -142,16 +151,10 @@ main{
                 .fa-arrow-circle-left{
                     &:before{
                         margin-right: 5px;
-                        @include pc{
-                            margin-right: 1px;
-                        }
                     }
                 }
                 .fa-arrow-circle-right{
                     margin-left: 5px;
-                    @include pc{
-                        margin-left: 1px;
-                    }
                 }
                 @include pc{
                     white-space: nowrap;
@@ -177,11 +180,21 @@ main{
     }
     .container{
         text-align: center;
+        @include tablette-pc{
+            text-align: right;
+        }
         .invisible{
             display: none;
         }
         form{
             font-size: 1.1em;
+            @include tablette-pc{
+                width: 50%;
+                margin: auto;
+                margin-right: 20%;
+                font-size: 1.3em;
+            }
+            
             #btn{
                 @include button;
                 background-color: rgb(47, 14, 136);

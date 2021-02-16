@@ -25,8 +25,8 @@ body {
     display: flex;
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: 70% 1fr;
-        grid-template-columns: 70% 1fr;
+    -ms-grid-columns: 50% 1fr;
+        grid-template-columns: 50% 1fr;
   }
 }
 
@@ -88,7 +88,7 @@ body {
 
 @media screen and (min-width: 600px) {
   .navbar #nav .panier {
-    margin-left: 20%;
+    margin-left: 15px;
   }
 }
 
@@ -98,6 +98,9 @@ body {
   color: white;
   background-color: #b36f5b;
   border-radius: 50%;
+  position: relative;
+  bottom: 15px;
+  right: 10px;
 }
 
 main h1 {
@@ -247,8 +250,17 @@ main .cart {
   text-align: center;
 }
 
+main .cart .card-item-panier {
+  width: 90%;
+  margin: auto;
+  background-color: #ebeaeb;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+}
+
 @media screen and (min-width: 600px) {
-  main .cart .card-item {
+  main .cart .card-item-panier {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -261,52 +273,46 @@ main .cart {
   }
 }
 
-main .cart .card-item .panier-img {
+@media all and (min-width: 1024px) {
+  main .cart .card-item-panier {
+    width: 80%;
+  }
+}
+
+main .cart .card-item-panier .panier-img {
   width: 100%;
   margin: auto;
-  border-radius: 15px 0 0 15px;
+  border-radius: 15px 15px 0 0;
 }
 
 @media screen and (min-width: 600px) {
-  main .cart .card-item .panier-img {
+  main .cart .card-item-panier .panier-img {
     width: 40%;
     margin: 0;
     height: 95%;
   }
 }
 
-main .cart .card-item .description p .bold {
+main .cart .card-item-panier .description p .bold {
   font-weight: bold;
 }
 
-main .cart .card-item .quantity .fa-arrow-circle-left:before {
+main .cart .card-item-panier .quantity .fa-arrow-circle-left:before {
   margin-right: 5px;
 }
 
-@media all and (min-width: 1024px) {
-  main .cart .card-item .quantity .fa-arrow-circle-left:before {
-    margin-right: 1px;
-  }
-}
-
-main .cart .card-item .quantity .fa-arrow-circle-right {
+main .cart .card-item-panier .quantity .fa-arrow-circle-right {
   margin-left: 5px;
 }
 
 @media all and (min-width: 1024px) {
-  main .cart .card-item .quantity .fa-arrow-circle-right {
-    margin-left: 1px;
-  }
-}
-
-@media all and (min-width: 1024px) {
-  main .cart .card-item .quantity {
+  main .cart .card-item-panier .quantity {
     white-space: nowrap;
     margin-right: 5px;
   }
 }
 
-main .cart .card-item button {
+main .cart .card-item-panier button {
   border-radius: 15px;
   padding: 8px;
   background-color: #b36f5b;
@@ -320,13 +326,13 @@ main .cart .card-item button {
   transition: transform 600ms, -webkit-transform 600ms;
 }
 
-main .cart .card-item button:hover {
+main .cart .card-item-panier button:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
 }
 
 @media screen and (min-width: 600px) {
-  main .cart .card-item button {
+  main .cart .card-item-panier button {
     height: 50px;
   }
 }
@@ -339,12 +345,27 @@ main .container {
   text-align: center;
 }
 
+@media screen and (min-width: 600px) {
+  main .container {
+    text-align: right;
+  }
+}
+
 main .container .invisible {
   display: none;
 }
 
 main .container form {
   font-size: 1.1em;
+}
+
+@media screen and (min-width: 600px) {
+  main .container form {
+    width: 50%;
+    margin: auto;
+    margin-right: 20%;
+    font-size: 1.3em;
+  }
 }
 
 main .container form #btn {
