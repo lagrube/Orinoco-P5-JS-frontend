@@ -1,19 +1,3 @@
-h1 {
-  color: #06020e;
-  display: block;
-  margin: auto;
-  margin-top: 20px;
-}
-
-h2 {
-  font-size: 1.1em;
-  text-align: center;
-  margin: auto;
-  margin-top: 10px;
-  margin-bottom: 30px;
-  width: 90%;
-}
-
 .navbar {
   background-color: #06020e;
   width: 100%;
@@ -67,6 +51,23 @@ h2 {
   border-radius: 50%;
 }
 
+main h1 {
+  text-align: center;
+}
+
+main h2 {
+  font-size: 1.1em;
+  text-align: center;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 90%;
+}
+
+main #card {
+  margin-top: 20px;
+}
+
 main #card .card-item {
   width: 90%;
   margin: auto;
@@ -84,7 +85,7 @@ main #card .card-item img {
 }
 
 main #card .card-item h3 {
-  margin: 5px 0 5px;
+  margin: 5px 0 5px 5%;
 }
 
 main #card .card-item .card-info {
@@ -94,6 +95,8 @@ main #card .card-item .card-info {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  width: 90%;
+  margin: auto;
 }
 
 main #card .card-item .card-info p {
@@ -124,10 +127,113 @@ main #card .card-item .card-info .card-button .card-button__lien:hover {
           transform: scale(1.1);
 }
 
-.add-to-cart {
+main article label {
+  padding: 8px;
+  margin-left: 15%;
+  background-color: #ebeaeb;
+  border-radius: 15px;
+}
+
+main article .add-to-cart {
+  margin-top: 20px;
+}
+
+main article .add-to-cart button {
   border-radius: 15px;
   padding: 8px;
   background-color: #b36f5b;
   border-color: #b36f5b;
+  font-weight: bold;
+  color: white;
+  display: block;
+  margin: auto;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: -webkit-transform 600ms;
+  transition: -webkit-transform 600ms;
+  transition: transform 600ms;
+  transition: transform 600ms, -webkit-transform 600ms;
+}
+
+main article .add-to-cart button:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+main article .alert {
+  text-align: center;
+  padding-top: 5px;
+}
+
+main .cart {
+  text-align: center;
+}
+
+main .cart .card-item .description p .bold {
+  font-weight: bold;
+}
+
+main .cart .card-item .quantity .fa-arrow-circle-left:before {
+  margin-right: 5px;
+}
+
+main .cart .card-item .quantity .fa-arrow-circle-right {
+  margin-left: 5px;
+}
+
+main .cart .card-item button {
+  border-radius: 15px;
+  padding: 8px;
+  background-color: #b36f5b;
+  border-color: #b36f5b;
+  color: white;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: -webkit-transform 600ms;
+  transition: -webkit-transform 600ms;
+  transition: transform 600ms;
+  transition: transform 600ms, -webkit-transform 600ms;
+}
+
+main .cart .card-item button:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+main .container {
+  text-align: center;
+}
+
+main .container .invisible {
+  display: none;
+}
+
+main .container form {
+  font-size: 1.1em;
+}
+
+main .container form #btn {
+  border-radius: 15px;
+  padding: 8px;
+  background-color: #b36f5b;
+  border-color: #b36f5b;
+  color: white;
+}
+
+main article .confirmation {
+  padding: 30px;
+  font-size: 1.3em;
+}
+
+main article .bold {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+footer {
+  background-color: #121215;
+  color: white;
+  margin-top: 30px;
+  text-align: center;
 }
 /*# sourceMappingURL=main.css.map */

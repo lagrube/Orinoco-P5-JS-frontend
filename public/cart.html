@@ -13,20 +13,21 @@
   </head>
   <body>
     <header>
-      <div class="logo">
-        <a href="./index.html"><h1>Orinocam</h1></a>
-        <a href="./index.html">Retour à l'accueil</a>
-      </div>
+      <nav class="navbar">
+				<img class="logo" src="../images/orinoco.png" alt="logo" />
+				  <div id="nav">
+					  <a href="index.html">Accueil</a>
+            <div class ="panier">
+              <a href="./cart.html" id="panier_name" class="active">Détails de votre panier</a>
+              <div id ="panier_quantity"></div>
+            </div>
+				  </div>
+				</div>
+			</nav>
     </header>
 
     <main>
-      
-      <div class ="panier">
-        <h3>Détail de votre panier :</h3>
-        <div id ="panier_quantity"></div>
-      </div>
-      
-      <div id="card">
+      <div id="card" class="cart">
         <h3 id="cart-total"></h3>
       </div>
       <div class="container">
@@ -51,10 +52,14 @@
           <input type="email" id="email" name="email" />
           <p id="emailErrorMessage" class="form-error"></p>
 
-          <input type="submit" id="btn" value="Valider" />
+          <input type="submit" id="btn" value="Payer" />
         </form>
       </div>
     </main>
+
+    <footer>
+			<p>Site réalisé dans le cadre du projet 5 du parcours d'Openclassrooms par : </br> Gruber Guillaume</p>
+		</footer>
   </body>
 </html>
 

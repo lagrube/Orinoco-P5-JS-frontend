@@ -66,6 +66,7 @@ const customizeYourCamera = (parent, lenses) => {
   // Création liste déroulante
   const label = document.createElement("label");
   const select = document.createElement("select");
+  const cardItem = document.getElementsByClassName('card-item');
 
   label.setAttribute("for", "card-lenses");
   label.textContent = "Lentille : ";

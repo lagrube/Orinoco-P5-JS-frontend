@@ -1,12 +1,18 @@
 // Index.html
 main{
     h1{
-
+        text-align: center;
     }
     h2{
-
+        font-size: 1.1em;
+        text-align: center;
+        margin: auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        width: 90%;
     }
     #card{
+        margin-top: 20px;
         .card-item{
             width: 90%;
             margin: auto;
@@ -21,11 +27,13 @@ main{
                 border-radius: 15px 15px 0 0;
             }
             h3{
-                margin: 5px 0 5px;
+                margin: 5px 0 5px 5%;
             }
             .card-info{
                 display: flex;
                 justify-content: space-between;
+                width: 90%;
+                margin: auto;
                 p{
                     margin: 5px 0 5px;
                 }
@@ -49,11 +57,102 @@ main{
 
 // Produit.html
 
-.add-to-cart{
-    @include button;
+main{
+    h2{
+
+    }
+    article{
+        .card-item{
+
+        }
+        label{
+            padding: 8px;
+            margin-left: 15%;
+            background-color: rgb(235, 234, 235);
+            border-radius: 15px;
+        }
+        .add-to-cart{
+            margin-top: 20px;
+            button{
+                @include button;
+                font-weight: bold;
+                color: white;
+                display: block;
+                margin: auto;
+                transform: scale(1);
+                transition: transform 600ms;
+                &:hover{
+                    transform: scale(1.1);
+                }
+            } 
+        }
+        .alert{
+            text-align: center;
+            padding-top: 5px;
+        }
+    }
 }
 
+// Cart
 
+main{
+    .cart{
+        text-align: center;
+        .card-item{
+            .description{
+                p{
+                    .bold{
+                        font-weight: bold;
+                    }
+                }
+            }
+            .quantity{
+                .fa-arrow-circle-left{
+                    &:before{
+                        margin-right: 5px;
+                    }
+                }
+                .fa-arrow-circle-right{
+                    margin-left: 5px;
+                }
+            }
+            button{
+                @include button;
+                color: white;
+                transform: scale(1);
+                transition: transform 600ms;
+                &:hover{
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+    .container{
+        text-align: center;
+        .invisible{
+            display: none;
+        }
+        form{
+            font-size: 1.1em;
+            #btn{
+                @include button;
+                color: white;
+            }
+        }
+    }
+}
 
+// confirmation
 
-
+main{
+    article{
+        .confirmation{
+            padding: 30px;
+            font-size: 1.3em;
+        }
+        .bold{
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+    }
+}

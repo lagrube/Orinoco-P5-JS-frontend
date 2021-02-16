@@ -49,7 +49,7 @@ const displayCart = async () => {
       panierQuantity.textContent = panierQuantityValue;
 
       const remove = document.querySelectorAll(".remove")[i];
-      const cartItem = document.querySelectorAll("article")[i];
+      const cartItem = document.querySelectorAll(".card-item")[i];
       const iconLeft = document.querySelectorAll(".fa-arrow-circle-left")[i];
       const iconRight = document.querySelectorAll(".fa-arrow-circle-right")[i];
       iconLeft.style.fontSize = "16px";
@@ -72,10 +72,10 @@ const renderCart = (productName, productPrice, imgUrl, productQuantity, productL
   cartItem.innerHTML = 
   `
     <img src="${imgUrl}" alt="${productName}"/>
-    <div class="product-information>
-        <p class="product-title">Marque : ${productName}</p>
-        <p class="product-lense">Lentille : ${productLense}</p>
-        <p class="price">Prix : ${numberWithSpace(productPrice)}€</p>
+    <div class="description">
+        <p> <span class="bold"> Marque: </span> ${productName}</p>
+        <p> <span class="bold"> Lentille: </span> ${productLense}</p>
+        <p> <span class="bold"> Prix: </span> ${numberWithSpace(productPrice)}€</p>
     </div>
     <p class="quantity">
       <i class="fas fa-arrow-circle-left">${productQuantity}</i><i class="fas fa-arrow-circle-right"></i>
