@@ -204,6 +204,12 @@ main #card .card-item .card-info .card-button .card-button__lien:hover {
   }
 }
 
+@media screen and (min-width: 600px) {
+  main article .card-item {
+    max-width: 600px;
+  }
+}
+
 main article label {
   padding: 8px;
   margin-left: 15%;
