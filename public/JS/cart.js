@@ -59,7 +59,7 @@ const displayCart = async () => {
       incrementItem(iconRight, itemId); // Appel de la fonction incrémentation avec la flèche de droite
     }
   } else {
-    cart.textContent = "Votre panier est vide.";
+    cartTotal.textContent = "Votre panier est vide.";
     form.classList.add("invisible");
   }
 };
@@ -71,7 +71,7 @@ const renderCart = (productName, productPrice, imgUrl, productQuantity, productL
   cartItem.classList.add("card-item");
   cartItem.innerHTML = 
   `
-    <img src="${imgUrl}" alt="${productName}"/>
+    <img class="panier-img" src="${imgUrl}" alt="${productName}"/>
     <div class="description">
         <p> <span class="bold"> Marque: </span> ${productName}</p>
         <p> <span class="bold"> Lentille: </span> ${productLense}</p>
@@ -84,7 +84,7 @@ const renderCart = (productName, productPrice, imgUrl, productQuantity, productL
       Supprimer
     </button>
   `;
-  cart.insertBefore(cartItem, cartTotal); // Insère article avant cartTotal
+  cart.appendChild(cartItem); // Insère cardItem avant cartTotal
   totalPrice += productPrice * productQuantity; // Implémente prix
   cartTotal.textContent = `Total : ${numberWithSpace(totalPrice)}€`; // Affiche le prix total
 };
@@ -103,7 +103,7 @@ const deleteCart = (removeElt, container, productId) => {
   });
 };
 
-/* TEST NON CONCLUANT DE LA SUPRRESSION DU LOCALSTORAGE(err console)
+/*TEST NON CONCLUANT DE LA SUPRRESSION DU LOCALSTORAGE(err console)
  if (panier.value === undefined) localStorage.clear();
 */
 
