@@ -38,6 +38,7 @@ main{
             .card-info{
                 display: flex;
                 justify-content: space-between;
+                align-items: baseline;
                 width: 90%;
                 margin: auto;
                 .card-price{
@@ -46,17 +47,16 @@ main{
                     padding: 7px;
                     border-radius: 18px;
                 }
-                .card-button{
+                .card-button__lien{
                     @include button;
-                    .card-button__lien /* Lien dans button */ {
-                        text-decoration: none;
-                        color: white;
-                        display: block;
-                        transform: scale(1);
-                        transition: transform 600ms;
-                        &:hover{
-                            transform: scale(1.1);
-                        }
+                    border-radius: 30px;
+                    text-decoration: none;
+                    color: white;
+                    display: block;
+                    transform: scale(1);
+                    transition: transform 600ms;
+                    &:hover{
+                        transform: scale(1.1);
                     }
                 }
             }

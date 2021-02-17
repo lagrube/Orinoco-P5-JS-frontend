@@ -53,9 +53,7 @@ const showPhotos = async() => {
                         <h3 class="card-name">${camera.name}</h3>
                         <div class="card-info">
                             <p class="card-price bold">${numberWithSpace(camera.price/100)}€</p>
-                            <button class="card-button">
-                                <a class="card-button__lien" href="./produit.html?id=${camera._id}">Voir le produit</a>
-                            </button>
+                            <a class="card-button__lien" href="./produit.html?id=${camera._id}">Voir le produit</a>
                         </div>
                     </div>
                 `

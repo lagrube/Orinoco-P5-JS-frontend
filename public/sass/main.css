@@ -159,6 +159,9 @@ main #card .card-item .card-info {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
   width: 90%;
   margin: auto;
 }
@@ -170,14 +173,12 @@ main #card .card-item .card-info .card-price {
   border-radius: 18px;
 }
 
-main #card .card-item .card-info .card-button {
+main #card .card-item .card-info .card-button__lien {
   border-radius: 15px;
   padding: 8px;
   background-color: #b36f5b;
   border-color: #b36f5b;
-}
-
-main #card .card-item .card-info .card-button .card-button__lien {
+  border-radius: 30px;
   text-decoration: none;
   color: white;
   display: block;
@@ -189,7 +190,7 @@ main #card .card-item .card-info .card-button .card-button__lien {
   transition: transform 600ms, -webkit-transform 600ms;
 }
 
-main #card .card-item .card-info .card-button .card-button__lien:hover {
+main #card .card-item .card-info .card-button__lien:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
 }

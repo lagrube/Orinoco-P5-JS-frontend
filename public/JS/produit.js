@@ -68,7 +68,7 @@ const customizeYourCamera = (parent, lenses) => {
   const select = document.createElement("select");
   const cardItem = document.getElementsByClassName('card-item');
 
-  label.setAttribute("for", "card-lenses");
+  label.setAttribute("for", "lenses-list");
   label.textContent = "Lentille : ";
   select.id = "lenses-list";
   select.required = true;
@@ -77,7 +77,7 @@ const customizeYourCamera = (parent, lenses) => {
 
   const choixOption = document.createElement("option");
   choixOption.textContent = "Choisissez une valeur";
-  choixOption.disabled = "disabled";
+  choixOption.value = "Choisissez une valeur";
   choixOption.selected = "selected";
   select.appendChild(choixOption);
 
@@ -128,7 +128,7 @@ const addToCart = (parentElt, cameraData) => {
       panier = {};
     }
     // Oblige le client à choisir une lentille
-    if (selectLense != "Choisissez une valeur"){
+    if (selectLense !== "Choisissez une valeur"){
       // ajouter le produit au panier
       if (panier[camera.id] !== undefined && panier[camera.id].lense === selectLense) {
         panier[camera.id].quantity += 1;
