@@ -297,6 +297,7 @@ main .cart .card-item-panier .panier-img {
     width: 40%;
     margin: 0;
     height: 95%;
+    border-radius: 15px 0 0 15px;
   }
 }
 
