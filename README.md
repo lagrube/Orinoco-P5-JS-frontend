@@ -68,11 +68,3 @@ Ligne de commande : `npm install --global http-server`.
 | Java-script              | Sass |  Visual Studio Code    |
 
 ***
-
-### 🚦Les documents de présentation
-
-→ [Voir le lien vers le dépot sur Github](https://drive.google.com/file/d/15ZtzxdEgrzaluYqR7x6mV1oZW05IKXhT/view?usp=sharing)\
-→ [Voir le plan de test en ligne](https://drive.google.com/file/d/1YTPd-akGpsQenxagnjSoEQtlFq0F3sIL/view?usp=sharing)\
-→ [Voir l'organigramme en ligne](https://drive.google.com/file/d/1WRYo4M2BiBcE1Orr_zWAwWvL5BGKYDRV/view?usp=sharing)
-
-***
