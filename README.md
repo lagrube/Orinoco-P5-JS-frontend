@@ -35,7 +35,7 @@ Les fichiers du back-end du serveur pour le projet sont présents dans ce répo.
 
 Vous aurez besoin d'avoir `Node` et `npm` installés localement sur votre machine.
 
-Clonez ce dépôt: https://github.com/thierry-laval/orinoco
+Clonez ce dépôt: https://github.com/lagrube/Orinoco-P5-JS-frontend
 
 À partir du dossier du projet, exécutez`npm install`.
 Vous pouvez ensuite exécuter le serveur avec`node server`.
