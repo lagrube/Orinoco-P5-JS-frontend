@@ -4,7 +4,7 @@ _`Début de formation le 14/10/2020`_
 
 ### Auteur
 
-👤 **Guillaume Gruber** [🇫🇷 Contactez moi 🇬🇧](<lagrube1@gmail.com>)
+👤 **Guillaume Gruber** lagrube1@gmail.com
 
 ***
 ## 📎 Projet 5 - Création de la partie front-end d’un site e-commerce.
