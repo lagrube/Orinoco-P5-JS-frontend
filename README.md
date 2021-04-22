@@ -51,7 +51,8 @@ Ligne de commande : `npm install --global http-server`.
 
 * Cloner ce repo
 * Ouvrir le terminal sur le dossier du site
-* Tapez en ligne de commande `node server`
+* Tapez en ligne de commande `npm install`
+* Puis tapez en ligne de commande `node server`
 * Ouvrez index.html (page d'accueil)
 
 ***
